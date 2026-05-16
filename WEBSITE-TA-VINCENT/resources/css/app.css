@@ -8,10 +8,102 @@
 @theme {
     --font-sans: 'Poppins', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-umkm-cream: #f9f5eb;
+    --font-serif: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --color-umkm-cream: #f7f3ea;
     --color-umkm-sand: #ebe4d6;
     --color-umkm-sage: #7d8f69;
     --color-umkm-sage-dark: #6a7a58;
-    --color-umkm-brown: #3d2b1f;
-    --color-umkm-muted: #5c5348;
+    --color-umkm-forest: #2f4a3e;
+    --color-umkm-forest-dark: #243a31;
+    --color-umkm-brown: #2c241c;
+    --color-umkm-muted: #6b6358;
+    --color-umkm-gold: #c4a35a;
 }
+
+/* Dashboard */
+@layer components {
+    .dashboard-scroll {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .dashboard-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dashboard-hero {
+        background: linear-gradient(135deg, #5d9460 0%, #4a7c44 45%, #3f6b3b 100%);
+    }
+
+    .dashboard-nav-active {
+        background-color: rgb(125 143 105 / 0.14);
+        color: var(--color-umkm-forest);
+        font-weight: 600;
+    }
+}
+
+/* Dekorasi halaman auth */
+@layer components {
+    .auth-grain {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    .auth-card-glow {
+        background: radial-gradient(ellipse 80% 50% at 50% -20%, rgb(125 143 105 / 0.18), transparent 60%);
+    }
+
+    .auth-shimmer {
+        background: linear-gradient(
+            105deg,
+            transparent 40%,
+            rgb(196 163 90 / 0.12) 45%,
+            rgb(196 163 90 / 0.2) 50%,
+            rgb(196 163 90 / 0.12) 55%,
+            transparent 60%
+        );
+        background-size: 200% 100%;
+        animation: auth-shimmer 8s ease-in-out infinite;
+    }
+}
+
+@keyframes auth-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes auth-float-slow {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-8px) translateX(4px); }
+}
+
+@keyframes auth-spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes auth-shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
+}
+
+@keyframes auth-pulse-soft {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .auth-shimmer,
+    .auth-animate-float,
+    .auth-animate-float-slow,
+    .auth-animate-spin,
+    .auth-animate-pulse {
+        animation: none !important;
+    }
+}
+
+.auth-animate-float { animation: auth-float 6s ease-in-out infinite; }
+.auth-animate-float-slow { animation: auth-float-slow 9s ease-in-out infinite; }
+.auth-animate-spin { animation: auth-spin-slow 40s linear infinite; }
+.auth-animate-pulse { animation: auth-pulse-soft 4s ease-in-out infinite; }
+.auth-animate-float-delay { animation-delay: 1.5s; }
+.auth-animate-float-delay-2 { animation-delay: 3s; }
