@@ -9,17 +9,17 @@
             <section id="pesanan" class="scroll-mt-24 min-h-[200px] flex flex-col rounded-[1.5rem] bg-white p-4 shadow-sm ring-1 ring-gray-100">
                 <div class="mb-3 flex items-center justify-between gap-2">
                     <h2 class="text-sm font-bold text-umkm-brown">Pesanan Saya</h2>
-                    <x-dashboard.section-link :href="$dash('pesanan')" />
+                    <x-dashboard.section-link :href="route('orders.index')" />
                 </div>
                 <div class="flex items-center justify-center py-3">
                     <div class="grid w-full grid-cols-4 gap-2 text-center">
                         @foreach ([
-                            ['label' => 'Belum Bayar', 'count' => 1, 'path' => 'M6 6h12a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 16.5v-9A1.5 1.5 0 0 1 6 6Zm0 0h12M7.5 9.75h9M7.5 13.5h6'],
-                            ['label' => 'Dikemas', 'count' => 2, 'path' => 'M5.25 7.5h13.5L21 10.5v6.75a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 17.25V10.5L5.25 7.5Zm1.5 0v3.75m12 0V7.5m-12 3.75h12'],
-                            ['label' => 'Dikirim', 'count' => 0, 'path' => 'M3.75 16.5h.75m0 0a1.5 1.5 0 1 0 0 0Zm15 0h.75m0 0a1.5 1.5 0 1 0 0 0Zm-15 0v-6h12v6M7.5 10.5l-1.5-3.75h12L16.5 10.5'],
-                            ['label' => 'Selesai', 'count' => 8, 'path' => 'M5.25 12.75l3.75 3.75 9-9'],
+                            ['label' => 'Belum Bayar', 'count' => 1, 'status' => null, 'path' => 'M6 6h12a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 16.5v-9A1.5 1.5 0 0 1 6 6Zm0 0h12M7.5 9.75h9M7.5 13.5h6'],
+                            ['label' => 'Dikemas', 'count' => 2, 'status' => 'diproses', 'path' => 'M5.25 7.5h13.5L21 10.5v6.75a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 17.25V10.5L5.25 7.5Zm1.5 0v3.75m12 0V7.5m-12 3.75h12'],
+                            ['label' => 'Dikirim', 'count' => 0, 'status' => 'dikirim', 'path' => 'M3.75 16.5h.75m0 0a1.5 1.5 0 1 0 0 0Zm15 0h.75m0 0a1.5 1.5 0 1 0 0 0Zm-15 0v-6h12v6M7.5 10.5l-1.5-3.75h12L16.5 10.5'],
+                            ['label' => 'Selesai', 'count' => 8, 'status' => 'selesai', 'path' => 'M5.25 12.75l3.75 3.75 9-9'],
                         ] as $status)
-                            <a href="{{ $dash('pesanan') }}" class="group flex flex-col items-center gap-2 rounded-2xl border border-gray-100 bg-[#f8faf5] px-1.5 py-2.5 transition hover:bg-gray-50">
+                            <a href="{{ route('orders.index', $status['status'] ? ['status' => $status['status']] : []) }}" class="group flex flex-col items-center gap-2 rounded-2xl border border-gray-100 bg-[#f8faf5] px-1.5 py-2.5 transition hover:bg-gray-50">
                                 <span class="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#e8f0e6] text-[#4a7c44]">
                                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $status['path'] }}"/></svg>
                                     @if ($status['count'] > 0)

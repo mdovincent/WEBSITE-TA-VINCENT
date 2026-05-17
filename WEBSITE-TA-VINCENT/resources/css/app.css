@@ -35,10 +35,207 @@
         background: linear-gradient(135deg, #5d9460 0%, #4a7c44 45%, #3f6b3b 100%);
     }
 
+    .dashboard-hero-slide {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .dashboard-hero-slide.is-active {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    .dashboard-hero-slide:not(.is-active) {
+        opacity: 0;
+        transform: translateX(1rem);
+        pointer-events: none;
+    }
+
     .dashboard-nav-active {
         background-color: rgb(125 143 105 / 0.14);
         color: var(--color-umkm-forest);
         font-weight: 600;
+    }
+
+    .order-tab {
+        border-bottom: 2px solid transparent;
+        margin-bottom: -1px;
+    }
+
+    .order-tab-active {
+        color: #4a7c44;
+        border-bottom-color: #4a7c44;
+    }
+
+    .order-badge-diproses {
+        background-color: #fff7ed;
+        color: #ea580c;
+    }
+
+    .order-badge-dikirim,
+    .order-badge-selesai {
+        background-color: #f0fdf4;
+        color: #16a34a;
+    }
+
+    .order-badge-dibatalkan {
+        background-color: #f3f4f6;
+        color: #6b7280;
+    }
+
+    .scrollbar-none {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .scrollbar-none::-webkit-scrollbar {
+        display: none;
+    }
+
+    .order-progress {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .order-progress--compact {
+        padding: 0 0.25rem;
+    }
+
+    .order-progress__step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .order-progress__dot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 9999px;
+        background-color: #e5e7eb;
+        flex-shrink: 0;
+    }
+
+    .order-progress__step--done .order-progress__dot {
+        background-color: #4a7c44;
+    }
+
+    .order-progress__step--active .order-progress__dot {
+        background-color: #4a7c44;
+        box-shadow: 0 0 0 3px rgb(74 124 68 / 0.25);
+    }
+
+    .order-progress__line {
+        flex: 1;
+        height: 2px;
+        margin-top: 0.6rem;
+        background-color: #e5e7eb;
+        min-width: 0.5rem;
+    }
+
+    .order-progress--compact .order-progress__line {
+        margin-top: 0;
+        align-self: center;
+    }
+
+    .order-progress__line--done {
+        background-color: #4a7c44;
+    }
+
+    .order-progress__label {
+        margin-top: 0.35rem;
+        font-size: 0.625rem;
+        font-weight: 600;
+        color: #9ca3af;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .order-progress__step--done .order-progress__label,
+    .order-progress__step--active .order-progress__label {
+        color: #4a7c44;
+    }
+
+    .order-timeline__item {
+        position: relative;
+        display: flex;
+        gap: 0.875rem;
+        padding-bottom: 1.25rem;
+        padding-left: 0.25rem;
+    }
+
+    .order-timeline__item:last-child {
+        padding-bottom: 0;
+    }
+
+    .order-timeline__item:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 0.6875rem;
+        top: 1.5rem;
+        bottom: 0;
+        width: 2px;
+        background-color: #e5e7eb;
+    }
+
+    .order-timeline__item--done:not(:last-child)::before {
+        background-color: #4a7c44;
+    }
+
+    .order-timeline__marker {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.375rem;
+        height: 1.375rem;
+        flex-shrink: 0;
+        border-radius: 9999px;
+        background-color: #e5e7eb;
+    }
+
+    .order-timeline__item--done .order-timeline__marker {
+        background-color: #4a7c44;
+    }
+
+    .order-timeline__item--current .order-timeline__marker {
+        background-color: #4a7c44;
+        box-shadow: 0 0 0 4px rgb(74 124 68 / 0.2);
+    }
+
+    .order-timeline__pulse {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 9999px;
+        background-color: white;
+    }
+
+    .order-timeline__item--pending .order-timeline__marker {
+        background-color: #f3f4f6;
+        border: 2px solid #e5e7eb;
+    }
+
+    .cart-checkout-bar {
+        left: 0;
+        right: 0;
+    }
+
+    @media (min-width: 1024px) {
+        .cart-checkout-bar {
+            left: 272px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .cart-checkout-bar {
+            right: 300px;
+        }
     }
 }
 
@@ -96,8 +293,10 @@
     .auth-animate-float,
     .auth-animate-float-slow,
     .auth-animate-spin,
-    .auth-animate-pulse {
+    .auth-animate-pulse,
+    .dashboard-hero-slide {
         animation: none !important;
+        transition: none !important;
     }
 }
 

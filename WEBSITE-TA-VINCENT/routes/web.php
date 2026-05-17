@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,5 +23,8 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
+    Route::get('keranjang', [CartController::class, 'index'])->name('cart.index');
+    Route::get('pesanan', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('pesanan/{invoice}', [OrderController::class, 'show'])->name('orders.show');
     Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 });

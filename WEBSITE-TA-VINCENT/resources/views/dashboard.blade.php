@@ -5,8 +5,28 @@
 @section('content')
     @php $dash = $dashboardUrl; @endphp
 
+    @php
+        $heroSlides = [
+            [
+                ['https://images.unsplash.com/photo-1610701596007-11502817dcfe?auto=format&fit=crop&w=200&q=80', 'Keripik'],
+                ['https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=220&q=80', 'Semangka'],
+                ['https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=200&q=80', 'Madu'],
+            ],
+            [
+                ['https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=200&q=80', 'Sayuran segar'],
+                ['https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=220&q=80', 'Pizza UMKM'],
+                ['https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=200&q=80', 'Masakan rumahan'],
+            ],
+            [
+                ['https://images.unsplash.com/photo-1606312619070-d48b4bdc2075?auto=format&fit=crop&w=200&q=80', 'Cokelat'],
+                ['https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=220&q=80', 'Roti artisan'],
+                ['https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=200&q=80', 'Kue tradisional'],
+            ],
+        ];
+    @endphp
+
     {{-- Hero banner --}}
-    <section class="dashboard-hero relative overflow-hidden rounded-2xl px-6 py-7 text-white shadow-md sm:px-8 sm:py-8">
+    <section class="dashboard-hero relative overflow-hidden rounded-2xl px-6 py-7 text-white shadow-md sm:px-8 sm:py-8" id="dashboard-hero" aria-label="Promo beranda">
         <div class="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div class="max-w-md">
                 <h1 class="text-xl font-bold leading-snug sm:text-2xl lg:text-[1.6rem]">
@@ -19,16 +39,48 @@
                     Belanja Sekarang
                 </a>
             </div>
-            <div class="relative mx-auto flex items-end justify-center gap-2 lg:mx-0 lg:justify-end">
-                <img src="https://images.unsplash.com/photo-1610701596007-11502817dcfe?auto=format&fit=crop&w=200&q=80" alt="" class="h-24 w-20 rounded-2xl object-cover ring-2 ring-white/40 sm:h-28 sm:w-24" width="96" height="112" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=220&q=80" alt="" class="relative z-10 h-32 w-28 rounded-2xl object-cover ring-4 ring-white/50 sm:h-36 sm:w-32" width="128" height="144" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=200&q=80" alt="" class="h-24 w-20 rounded-2xl object-cover ring-2 ring-white/40 sm:h-28 sm:w-24" width="96" height="112" loading="lazy">
+            <div class="relative mx-auto h-32 w-[17rem] sm:h-36 sm:w-[19rem] lg:mx-0">
+                @foreach ($heroSlides as $slideIndex => $images)
+                    <div
+                        class="dashboard-hero-slide absolute inset-0 flex items-end justify-center gap-2 lg:justify-end {{ $slideIndex === 0 ? 'is-active' : '' }}"
+                        data-hero-slide
+                        role="group"
+                        aria-roledescription="slide"
+                        aria-label="Slide {{ $slideIndex + 1 }} dari {{ count($heroSlides) }}"
+                    >
+                        @foreach ($images as $imgIndex => [$src, $alt])
+                            <img
+                                src="{{ $src }}"
+                                alt="{{ $alt }}"
+                                @class([
+                                    'rounded-2xl object-cover',
+                                    'h-24 w-20 ring-2 ring-white/40 sm:h-28 sm:w-24' => $imgIndex !== 1,
+                                    'relative z-10 h-32 w-28 ring-4 ring-white/50 sm:h-36 sm:w-32' => $imgIndex === 1,
+                                ])
+                                width="{{ $imgIndex === 1 ? 128 : 96 }}"
+                                height="{{ $imgIndex === 1 ? 144 : 112 }}"
+                                loading="{{ $slideIndex === 0 ? 'eager' : 'lazy' }}"
+                            >
+                        @endforeach
+                    </div>
+                @endforeach
             </div>
         </div>
-        <div class="relative z-10 mt-6 flex justify-center gap-1.5">
-            <span class="h-1.5 w-5 rounded-full bg-white"></span>
-            <span class="h-1.5 w-1.5 rounded-full bg-white/40"></span>
-            <span class="h-1.5 w-1.5 rounded-full bg-white/40"></span>
+        <div class="relative z-10 mt-6 flex justify-center gap-1.5" role="tablist" aria-label="Navigasi slide promo">
+            @foreach ($heroSlides as $i => $_)
+                <button
+                    type="button"
+                    data-hero-dot="{{ $i }}"
+                    role="tab"
+                    aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
+                    aria-label="Slide {{ $i + 1 }}"
+                    @class([
+                        'rounded-full bg-white transition-all duration-300',
+                        'h-1.5 w-5' => $i === 0,
+                        'h-1.5 w-1.5 bg-white/40 hover:bg-white/60' => $i !== 0,
+                    ])
+                ></button>
+            @endforeach
         </div>
     </section>
 
@@ -96,6 +148,62 @@
 @push('scripts')
 <script>
     (function () {
+        const hero = document.getElementById('dashboard-hero');
+        if (hero) {
+            const slides = hero.querySelectorAll('[data-hero-slide]');
+            const dots = hero.querySelectorAll('[data-hero-dot]');
+            let current = 0;
+            let timer = null;
+            const interval = 4500;
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function goTo(index) {
+                if (!slides.length) return;
+                current = (index + slides.length) % slides.length;
+                slides.forEach(function (slide, i) {
+                    slide.classList.toggle('is-active', i === current);
+                });
+                dots.forEach(function (dot, i) {
+                    const active = i === current;
+                    dot.setAttribute('aria-selected', active ? 'true' : 'false');
+                    dot.classList.toggle('h-1.5', true);
+                    dot.classList.toggle('w-5', active);
+                    dot.classList.toggle('w-1.5', !active);
+                    dot.classList.toggle('bg-white', active);
+                    dot.classList.toggle('bg-white/40', !active);
+                    dot.classList.toggle('hover:bg-white/60', !active);
+                });
+            }
+
+            function next() {
+                goTo(current + 1);
+            }
+
+            function startAutoplay() {
+                if (reducedMotion || slides.length < 2) return;
+                stopAutoplay();
+                timer = setInterval(next, interval);
+            }
+
+            function stopAutoplay() {
+                if (timer) clearInterval(timer);
+                timer = null;
+            }
+
+            dots.forEach(function (dot) {
+                dot.addEventListener('click', function () {
+                    goTo(parseInt(dot.getAttribute('data-hero-dot'), 10));
+                    startAutoplay();
+                });
+            });
+
+            hero.addEventListener('mouseenter', stopAutoplay);
+            hero.addEventListener('mouseleave', startAutoplay);
+
+            goTo(0);
+            startAutoplay();
+        }
+
         let total = 2 * 3600 + 45 * 60 + 12;
         const h = document.getElementById('cd-h');
         const m = document.getElementById('cd-m');
