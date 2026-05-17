@@ -9,10 +9,10 @@
     ];
 @endphp
 
-<header class="sticky top-0 z-30 h-[60px] shrink-0 border-b border-gray-200/80 bg-white">
-    <div class="flex h-full items-center gap-3 px-4 sm:px-5 lg:px-6">
-        {{-- Kolom pencarian: lebar sedang, ikon tidak menimpa placeholder --}}
-        <div class="relative w-[560px] max-w-[calc(100%-11rem)] shrink-0 sm:max-w-[680px] sm:w-[680px] md:max-w-[800px] md:w-[800px] lg:max-w-[920px] lg:w-[920px] xl:max-w-[1040px] xl:w-[1040px]">
+<header class="sticky top-0 z-30 h-[60px] min-w-0 shrink-0 border-b border-gray-200/80 bg-white">
+    <div class="flex h-full min-w-0 items-center gap-3 px-4 sm:px-5 lg:px-6">
+        {{-- Kolom pencarian mengikuti lebar area tengah (tidak menimpa panel kanan) --}}
+        <div class="relative min-w-0 flex-1">
             <svg class="pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
             </svg>

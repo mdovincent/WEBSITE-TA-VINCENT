@@ -15,11 +15,11 @@
     <div class="flex min-h-screen">
         <x-dashboard.sidebar :active="$active ?? 'beranda'" />
 
-        <div class="flex min-w-0 flex-1 flex-col lg:ml-[272px]">
+        <div class="flex min-w-0 flex-1 flex-col overflow-hidden lg:ml-[272px]">
             <x-dashboard.topbar />
 
-            <div class="flex min-h-0 flex-1">
-                <main class="min-w-0 flex-1 overflow-y-auto p-4 sm:p-5 lg:p-6 xl:mr-[292px]">
+            <div class="flex min-h-0 min-w-0 flex-1 overflow-hidden">
+                <main class="min-w-0 flex-1 overflow-x-hidden overflow-y-auto p-4 sm:p-5 lg:p-6">
                     @if (session('success'))
                         <div class="mb-4 rounded-xl border border-umkm-sage/30 bg-white px-4 py-3 text-sm font-medium text-umkm-sage-dark shadow-sm" role="alert">
                             {{ session('success') }}

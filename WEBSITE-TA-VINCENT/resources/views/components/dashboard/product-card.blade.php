@@ -6,15 +6,19 @@
 
 @php
     $formatPrice = fn (int $n) => 'Rp '.number_format($n, 0, ',', '.');
-    $sizeClass = $horizontal ? 'w-[148px] shrink-0 snap-start sm:w-[158px]' : 'w-full';
+    $isGrid = ! $horizontal;
+    $sizeClass = $horizontal ? 'w-[148px] shrink-0 snap-start sm:w-[158px]' : 'w-full min-w-0';
+    $imageWrapClass = $isGrid
+        ? 'relative h-[140px] w-full overflow-hidden bg-gray-100 sm:h-[152px]'
+        : 'relative aspect-square overflow-hidden bg-gray-100';
     $dash = $dashboardUrl ?? fn (?string $f = null) => route('dashboard').($f ? '#'.$f : '');
     $productLink = $dash('produk');
 @endphp
 
 <article {{ $attributes->merge(['class' => $sizeClass]) }}>
     <a href="{{ $productLink }}" class="group block overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-gray-100 transition hover:shadow-md">
-        <div class="relative aspect-square overflow-hidden bg-gray-100">
-            <img src="{{ $product['img'] }}" alt="{{ $product['name'] }}" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" width="172" height="172" loading="lazy">
+        <div class="{{ $imageWrapClass }}">
+            <img src="{{ $product['img'] }}" alt="{{ $product['name'] }}" class="h-full w-full object-cover object-center transition duration-300 group-hover:scale-105" width="{{ $isGrid ? 200 : 172 }}" height="{{ $isGrid ? 152 : 172 }}" loading="lazy">
             @if ($flash && $product['discount'])
                 <span class="absolute left-2 top-2 rounded-md bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white">-{{ $product['discount'] }}%</span>
             @endif
@@ -24,8 +28,8 @@
                 </button>
             @endunless
         </div>
-        <div class="p-2.5">
-            <h3 class="line-clamp-2 min-h-[2.5rem] text-xs font-medium leading-snug text-umkm-brown">{{ $product['name'] }}</h3>
+        <div class="{{ $isGrid ? 'p-2' : 'p-2.5' }}">
+            <h3 class="line-clamp-2 {{ $isGrid ? 'min-h-[2.25rem]' : 'min-h-[2.5rem]' }} text-xs font-medium leading-snug text-umkm-brown">{{ $product['name'] }}</h3>
             <div class="mt-1.5 flex flex-wrap items-baseline gap-1">
                 <span class="text-sm font-bold {{ $flash ? 'text-red-600' : 'text-umkm-brown' }}">{{ $formatPrice($product['price']) }}</span>
                 @if ($product['original'])

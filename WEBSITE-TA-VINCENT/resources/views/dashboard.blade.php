@@ -33,8 +33,8 @@
     </section>
 
     {{-- Quick actions --}}
-    <section class="mt-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-100">
-        <div class="grid grid-cols-5 gap-1 sm:gap-2">
+    <section class="mt-4 rounded-2xl bg-white px-4 py-5 shadow-sm ring-1 ring-gray-100 sm:px-6">
+        <div class="mx-auto flex max-w-3xl flex-wrap items-start justify-center gap-x-5 gap-y-4 sm:gap-x-8 md:gap-x-10">
             @foreach ([
                 ['label' => 'Pulsa & Tagihan', 'hash' => 'pembayaran', 'color' => 'bg-sky-50 text-sky-600', 'path' => 'M2.25 18.75a60.07 60.07 0 0 1 15.797-8.981M2.25 18.75v3.75c0 .621.504 1.125 1.125 1.125h16.5c.621 0 1.125-.504 1.125-1.125v-3.75M2.25 18.75 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0 5.15-2.29M12 12.75V21'],
                 ['label' => 'Voucher', 'hash' => 'voucher', 'color' => 'bg-amber-50 text-amber-600', 'path' => 'M16.5 6v.75m0 3v.75m0 3v.75M4.5 6v.75m0 3v.75m0 3v.75M4.5 6h15a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-12A1.5 1.5 0 0 1 4.5 6Z'],
@@ -42,11 +42,11 @@
                 ['label' => 'UMKM Terdekat', 'hash' => 'umkm-favorit', 'color' => 'bg-rose-50 text-rose-600', 'path' => 'M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z'],
                 ['label' => 'Promo', 'hash' => 'promo', 'color' => 'bg-violet-50 text-violet-600', 'path' => 'M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z'],
             ] as $action)
-                <a href="{{ $dash($action['hash']) }}" class="flex flex-col items-center gap-2 rounded-xl p-2 transition hover:bg-gray-50">
-                    <span class="flex h-11 w-11 items-center justify-center rounded-full {{ $action['color'] }}">
+                <a href="{{ $dash($action['hash']) }}" class="flex w-[4.75rem] shrink-0 flex-col items-center gap-2 rounded-xl p-1.5 transition hover:bg-gray-50 sm:w-20">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-full {{ $action['color'] }}">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $action['path'] }}"/></svg>
                     </span>
-                    <span class="text-center text-[10px] font-medium leading-tight text-gray-600 sm:text-[11px]">{{ $action['label'] }}</span>
+                    <span class="w-full text-center text-[10px] font-medium leading-tight text-gray-600 sm:text-[11px]">{{ $action['label'] }}</span>
                 </a>
             @endforeach
         </div>
@@ -67,7 +67,7 @@
             </div>
             <x-dashboard.section-link :href="$dash('produk')" />
         </div>
-        <div class="dashboard-scroll -mx-1 flex gap-3 overflow-x-auto px-1 pb-1 snap-x snap-mandatory">
+        <div class="dashboard-scroll flex gap-3 overflow-x-auto pb-2 pt-0.5 snap-x snap-mandatory sm:gap-4">
             @foreach ($flashSaleProducts as $product)
                 <x-dashboard.product-card :product="$product" :flash="true" />
             @endforeach
@@ -80,9 +80,9 @@
             <h2 class="text-base font-bold text-umkm-brown">Rekomendasi Untuk Anda</h2>
             <x-dashboard.section-link :href="$dash('produk')" />
         </div>
-        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
+        <div class="dashboard-scroll flex gap-3 overflow-x-auto pb-2 pt-0.5 snap-x snap-mandatory sm:gap-4">
             @foreach ($recommendedProducts as $product)
-                <x-dashboard.product-card :product="$product" :horizontal="false" />
+                <x-dashboard.product-card :product="$product" />
             @endforeach
         </div>
     </section>
