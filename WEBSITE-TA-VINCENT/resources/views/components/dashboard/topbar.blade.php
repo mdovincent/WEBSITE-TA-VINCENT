@@ -18,7 +18,7 @@
             </svg>
             <input
                 type="search"
-                placeholder="Cari produk UMKM..."
+                placeholder="Cari produk UMKM, toko, atau nomor pesanan..."
                 class="h-9 w-full rounded-full border border-gray-200 bg-[#f5f6f8] pl-11 pr-4 text-sm text-umkm-brown outline-none transition placeholder:text-gray-400 focus:border-[#4a7c44]/50 focus:bg-white focus:ring-2 focus:ring-[#4a7c44]/15"
             >
         </div>

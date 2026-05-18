@@ -19,7 +19,7 @@
             <x-dashboard.topbar />
 
             <div class="flex min-h-0 min-w-0 flex-1 overflow-hidden">
-                <main class="min-w-0 flex-1 overflow-x-hidden overflow-y-auto p-4 sm:p-5 lg:p-6">
+                <main class="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto bg-[#f0f2f5] p-4 sm:p-5 lg:p-6">
                     @if (session('success'))
                         <div class="mb-4 rounded-xl border border-umkm-sage/30 bg-white px-4 py-3 text-sm font-medium text-umkm-sage-dark shadow-sm" role="alert">
                             {{ session('success') }}

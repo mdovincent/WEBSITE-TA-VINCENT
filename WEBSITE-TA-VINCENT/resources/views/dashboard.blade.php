@@ -8,19 +8,19 @@
     @php
         $heroSlides = [
             [
-                ['https://images.unsplash.com/photo-1610701596007-11502817dcfe?auto=format&fit=crop&w=200&q=80', 'Keripik'],
-                ['https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=220&q=80', 'Semangka'],
-                ['https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=200&q=80', 'Madu'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23f4f6ed%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%234a7c44%22%3EKeripik%3C/text%3E%3C/svg%3E', 'Keripik'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23d8f5e2%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%233d6b3b%22%3ESemangka%3C/text%3E%3C/svg%3E', 'Semangka'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23fde2c8%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%233b5323%22%3EMadu%3C/text%3E%3C/svg%3E', 'Madu'],
             ],
             [
-                ['https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=200&q=80', 'Sayuran segar'],
-                ['https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=220&q=80', 'Pizza UMKM'],
-                ['https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=200&q=80', 'Masakan rumahan'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23eaf7ff%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%23386b98%22%3ESayuran%20Segar%3C/text%3E%3C/svg%3E', 'Sayuran segar'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23fff5d4%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%23a66327%22%3EPizza%20UMKM%3C/text%3E%3C/svg%3E', 'Pizza UMKM'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23f7e8e2%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%23755235%22%3EMasakan%20Rumahan%3C/text%3E%3C/svg%3E', 'Masakan rumahan'],
             ],
             [
-                ['https://images.unsplash.com/photo-1606312619070-d48b4bdc2075?auto=format&fit=crop&w=200&q=80', 'Cokelat'],
-                ['https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=220&q=80', 'Roti artisan'],
-                ['https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=200&q=80', 'Kue tradisional'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23f6f0ff%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%232d3b5b%22%3ECokelat%3C/text%3E%3C/svg%3E', 'Cokelat'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23fff1e5%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%23554830%22%3ERoti%20Artisan%3C/text%3E%3C/svg%3E', 'Roti artisan'],
+                ['data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 240%22%3E%3Crect width=%22320%22 height=%22240%22 fill=%22%23e9f2df%22/%3E%3Ctext x=%22160%22 y=%22120%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%233d6b3b%22%3EKue%20Tradisional%3C/text%3E%3C/svg%3E', 'Kue tradisional'],
             ],
         ];
     @endphp
@@ -39,7 +39,7 @@
                     Belanja Sekarang
                 </a>
             </div>
-            <div class="relative mx-auto h-32 w-[17rem] sm:h-36 sm:w-[19rem] lg:mx-0">
+            <div class="relative mx-auto h-40 w-[18rem] sm:h-48 sm:w-[22rem] lg:mx-0 lg:h-56 lg:w-[26rem]">
                 @foreach ($heroSlides as $slideIndex => $images)
                     <div
                         class="dashboard-hero-slide absolute inset-0 flex items-end justify-center gap-2 lg:justify-end {{ $slideIndex === 0 ? 'is-active' : '' }}"
@@ -52,18 +52,24 @@
                             <img
                                 src="{{ $src }}"
                                 alt="{{ $alt }}"
-                                @class([
-                                    'rounded-2xl object-cover',
-                                    'h-24 w-20 ring-2 ring-white/40 sm:h-28 sm:w-24' => $imgIndex !== 1,
-                                    'relative z-10 h-32 w-28 ring-4 ring-white/50 sm:h-36 sm:w-32' => $imgIndex === 1,
-                                ])
-                                width="{{ $imgIndex === 1 ? 128 : 96 }}"
-                                height="{{ $imgIndex === 1 ? 144 : 112 }}"
+                                class="rounded-2xl object-cover {{ $imgIndex === 1 ? 'relative z-10 h-40 w-32 ring-4 ring-white/50 sm:h-48 sm:w-36' : 'h-28 w-20 ring-2 ring-white/40 sm:h-32 sm:w-24' }}"
+                                width="{{ $imgIndex === 1 ? 144 : 96 }}"
+                                height="{{ $imgIndex === 1 ? 176 : 112 }}"
                                 loading="{{ $slideIndex === 0 ? 'eager' : 'lazy' }}"
+                                onerror="this.onerror=null;this.src='https://placehold.co/{{ $imgIndex === 1 ? 144 : 96 }}x{{ $imgIndex === 1 ? 176 : 112 }}/ffffff/4a7c44?text=UMKM'"
                             >
                         @endforeach
                     </div>
                 @endforeach
+
+                <div class="absolute inset-x-0 bottom-0 flex items-center justify-between px-2 sm:px-3">
+                    <button type="button" data-hero-prev class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/60" aria-label="Sebelumnya">
+                        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" class="h-4 w-4"><path d="M12.5 15 7.5 10l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button type="button" data-hero-next class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/60" aria-label="Berikutnya">
+                        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" class="h-4 w-4"><path d="M7.5 15 12.5 10 7.5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="relative z-10 mt-6 flex justify-center gap-1.5" role="tablist" aria-label="Navigasi slide promo">
@@ -196,6 +202,23 @@
                     startAutoplay();
                 });
             });
+
+            const prevBtn = hero.querySelector('[data-hero-prev]');
+            const nextBtn = hero.querySelector('[data-hero-next]');
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function () {
+                    goTo(current - 1);
+                    startAutoplay();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function () {
+                    goTo(current + 1);
+                    startAutoplay();
+                });
+            }
 
             hero.addEventListener('mouseenter', stopAutoplay);
             hero.addEventListener('mouseleave', startAutoplay);

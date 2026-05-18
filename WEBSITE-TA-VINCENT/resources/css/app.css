@@ -52,9 +52,22 @@
     }
 
     .dashboard-nav-active {
-        background-color: rgb(125 143 105 / 0.14);
-        color: var(--color-umkm-forest);
+        position: relative;
+        background-color: #e8f0e6;
+        color: #3d6b3b;
         font-weight: 600;
+    }
+
+    .dashboard-nav-active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 3px;
+        height: 55%;
+        border-radius: 0 4px 4px 0;
+        background-color: #4a7c44;
+        transform: translateY(-50%);
     }
 
     .order-tab {
@@ -72,7 +85,11 @@
         color: #ea580c;
     }
 
-    .order-badge-dikirim,
+    .order-badge-dikirim {
+        background-color: #eff6ff;
+        color: #2563eb;
+    }
+
     .order-badge-selesai {
         background-color: #f0fdf4;
         color: #16a34a;
@@ -165,8 +182,8 @@
         position: relative;
         display: flex;
         gap: 0.875rem;
-        padding-bottom: 1.25rem;
-        padding-left: 0.25rem;
+        padding-bottom: 1.35rem;
+        padding-left: 0.125rem;
     }
 
     .order-timeline__item:last-child {
@@ -193,8 +210,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 1.375rem;
-        height: 1.375rem;
+        width: 1.5rem;
+        height: 1.5rem;
         flex-shrink: 0;
         border-radius: 9999px;
         background-color: #e5e7eb;
@@ -222,21 +239,16 @@
     }
 
     .cart-checkout-bar {
-        left: 0;
-        right: 0;
+        position: relative;
+        left: auto;
+        right: auto;
+        max-width: none;
     }
 
-    @media (min-width: 1024px) {
-        .cart-checkout-bar {
-            left: 272px;
-        }
+    .cart-qty-btn:active {
+        transform: scale(0.95);
     }
 
-    @media (min-width: 1280px) {
-        .cart-checkout-bar {
-            right: 300px;
-        }
-    }
 }
 
 /* Dekorasi halaman auth */

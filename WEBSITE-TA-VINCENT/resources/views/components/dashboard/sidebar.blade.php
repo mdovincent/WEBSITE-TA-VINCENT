@@ -95,7 +95,12 @@
         </div>
         <form method="POST" action="{{ route('logout') }}" class="mt-2">
             @csrf
-            <button type="submit" class="w-full py-1.5 text-[11px] text-gray-400 transition hover:text-red-500">Keluar</button>
+            <button type="submit" class="flex w-full items-center justify-center gap-1.5 py-2 text-xs text-gray-500 transition hover:text-red-500">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25V9M4.5 9h15m-1.5 10.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25V9"/>
+                </svg>
+                Keluar
+            </button>
         </form>
     </div>
 </aside>

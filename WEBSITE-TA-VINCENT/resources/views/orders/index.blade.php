@@ -10,29 +10,30 @@
         ), fn ($v) => $v !== null && $v !== '');
     @endphp
 
-    <section class="mx-auto max-w-xl rounded-2xl bg-white shadow-sm ring-1 ring-gray-100" id="orders-page">
+    <section class="w-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100" id="orders-page">
         <div class="border-b border-gray-100 px-4 py-4 sm:px-5">
             <div class="flex items-center justify-between gap-2">
-                <h1 class="text-base font-bold text-umkm-brown">Pesanan Saya</h1>
-                <div class="flex items-center gap-1">
-                    <button
-                        type="button"
-                        id="orders-filter-toggle"
-                        class="flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-umkm-brown"
-                        aria-label="Filter dan urutkan"
-                        aria-expanded="false"
-                        aria-controls="orders-filter-panel"
-                    >
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m0 0a1.5 1.5 0 0 1 3 0m-3 0a1.5 1.5 0 0 0 3 0m0 0h9.75M7.5 12h9.75m-9.75 0a1.5 1.5 0 0 1 3 0m-3 0a1.5 1.5 0 0 0 3 0m-9.75 0h9.75m0 0a1.5 1.5 0 0 1 3 0m-3 0a1.5 1.5 0 0 0 3 0"/>
+                <h1 class="flex items-center gap-2 text-base font-bold text-umkm-brown sm:text-lg">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#e8f0e6] text-[#4a7c44]">
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                            <path d="M12 3c-4 4-6 8-6 12a6 6 0 1 0 12 0c0-4-2-8-6-12Z" stroke-linecap="round"/>
+                            <path d="M12 11v10" stroke-linecap="round"/>
                         </svg>
-                    </button>
-                    <a href="{{ route('dashboard') }}" class="flex h-9 w-9 items-center justify-center rounded-full text-gray-400 transition hover:bg-gray-50 hover:text-umkm-brown" aria-label="Kembali ke beranda">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
-                        </svg>
-                    </a>
-                </div>
+                    </span>
+                    Pesanan Saya
+                </h1>
+                <button
+                    type="button"
+                    id="orders-filter-toggle"
+                    class="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f5f6f8] text-gray-500 transition hover:bg-[#e8f0e6] hover:text-[#4a7c44]"
+                    aria-label="Filter dan urutkan"
+                    aria-expanded="false"
+                    aria-controls="orders-filter-panel"
+                >
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m0 0a1.5 1.5 0 0 1 3 0m-3 0a1.5 1.5 0 0 0 3 0m0 0h9.75M7.5 12h9.75m-9.75 0a1.5 1.5 0 0 1 3 0m-3 0a1.5 1.5 0 0 0 3 0m-9.75 0h9.75m0 0a1.5 1.5 0 0 1 3 0m-3 0a1.5 1.5 0 0 0 3 0"/>
+                    </svg>
+                </button>
             </div>
 
             <form action="{{ route('orders.index') }}" method="GET" class="mt-3" role="search">
