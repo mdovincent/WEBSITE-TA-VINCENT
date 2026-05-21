@@ -1,38 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Beranda') — UMKM Bersama Maju</title>
+    <title>@yield('title', 'Dashboard Admin')</title>
+    <meta name="description" content="Dashboard admin UMKM Bersama Maju." />
 
     @fonts
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=playfair-display:600,700" rel="stylesheet">
 
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
 </head>
-<body class="min-h-screen bg-[#f0f2f5] font-sans text-umkm-brown antialiased">
-    <div class="flex min-h-screen">
-        <x-dashboard.sidebar :active="$active ?? 'beranda'" />
-
-        <div class="flex min-w-0 flex-1 flex-col overflow-hidden lg:ml-[272px]">
-            <x-dashboard.topbar />
-
-            <div class="flex min-h-0 min-w-0 flex-1 overflow-hidden">
-                <main class="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto bg-[#f0f2f5] p-4 sm:p-5 lg:p-6">
-                    @if (session('success'))
-                        <div class="mb-4 rounded-xl border border-umkm-sage/30 bg-white px-4 py-3 text-sm font-medium text-umkm-sage-dark shadow-sm" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    @yield('content')
-                </main>
-
-                <x-dashboard.right-panel />
-            </div>
-        </div>
-    </div>
+<body class="relative min-h-screen bg-umkm-cream font-sans text-[#1a1a1a] antialiased">
+    <main class="min-h-screen">
+        @yield('content')
+    </main>
 
     @stack('scripts')
 </body>

@@ -145,7 +145,6 @@
                         <span class="relative">Masuk</span>
                     </button>
                 </form>
-
                 <p class="relative mt-8 text-center text-sm text-umkm-muted">
                     Belum punya akun?
                     <a href="{{ route('register') }}" class="font-semibold text-umkm-sage-dark underline-offset-2 transition hover:text-umkm-forest hover:underline">Daftar sekarang</a>
